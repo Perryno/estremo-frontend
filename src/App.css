@@ -1,38 +1,246 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;400;600&family=Nunito+Sans:wght@200;400;500;600&family=Work+Sans:wght@200;400;500;600&display=swap");
+
 .App {
   text-align: center;
+  background: linear-gradient(120deg, rgb(81, 220, 255), rgb(138, 77, 156));
+  box-sizing: border-box;
+  padding-inline: 20px;
+  font-family: "Nunito Sans", sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.filter {
+  background-color: #00000036;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+/*----------------------navBar-------------------------*/
+
+#navLogo {
+  width: 65px;
+  margin: 10px;
+}
+
+#navBar {
+  font-size: 1.3rem;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.navButton {
+  color: aliceblue;
+  border-radius: 20px;
+  padding: 5px;
+  padding-inline: 10px;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.151);
+  margin-inline: 10px;
+}
+
+.buttonContainer {
+  width: auto;
+}
+
+#cerca {
+  background-color: rgba(0, 0, 0, 0.151);
+  color: aliceblue;
+  border-radius: 20px;
+  border: none;
+  padding: 5px;
+  box-sizing: border-box;
+  padding-inline: 20px;
+  width: 100%;
+}
+
+#cerca::placeholder {
+  padding-left: 5px;
+  color: rgb(240, 248, 255);
+}
+
+#cerca:focus {
+  outline: none;
+  border: none;
+}
+
+.menu-toggle {
+  display: none;
+  cursor: pointer;
+}
+
+.menu {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.menu li {
+  list-style: none;
+  margin-left: 20px;
+}
+
+.menu a {
+  text-decoration: none;
+}
+
+@media screen and (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .menu {
+    display: none;
+  }
+
+  .menu.active {
+    display: flex;
+    flex-direction: column;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.navLayout {
+  background-color: rgba(0, 0, 0, 0.151);
+  border-radius: 20px;
+  color: aliceblue;
+  padding: 5px;
+  border: none;
+  box-sizing: border-box;
+  padding-inline: 20px;
+  width: 100%;
+  font-size: 1.3rem;
+
+  text-decoration: none;
+}
+
+.homeButton {
+  width: 20%;
+  transition: 0.3s;
+}
+
+.homeButton:hover {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+/*----------------------Home-------------------------*/
+
+#assembla {
+  font-size: 4rem;
+  transition: 0.5s ease;
+  color: aliceblue;
+  font-weight: 600;
+  margin-bottom: 100px;
+  cursor: pointer;
+}
+
+#assembla:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  color: #ffffff;
+}
+
+#estremoGaming {
+  margin-bottom: 60px;
+}
+
+#home {
+  color: aliceblue;
+}
+
+.rem18 {
+  width: 18rem;
+}
+
+.card {
+  background: linear-gradient(180deg, rgba(209, 252, 255, 0.658), white);
+  color: #161617;
+  border: none;
+}
+
+/*----------------------Dropdown-------------------------*/
+
+.dropdown-menu-center {
+  right: auto;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+  -o-transform: translate(-50%, 0);
+  transform: translate(-50%, 0);
+  color: aliceblue;
+}
+
+.MyDropdown {
+  background-color: rgba(0, 0, 0, 0.151);
+  border-radius: 20px;
+  color: aliceblue;
+  padding: 5px;
+  box-sizing: border-box;
+  padding-inline: 20px;
+  width: 100%;
+  font-size: 1.3rem;
+}
+.MyDropdown::after {
+  display: none;
+}
+
+.dropdownItem {
+  text-decoration: none;
+  font-size: 1.1rem;
+  color: aliceblue;
+  font-weight: 500;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.dropdown {
+  border-radius: 25px;
+  background-color: rgba(0, 0, 0, 0);
+  color: aliceblue;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.dropdown-menu-primary {
+  background-color: rgba(0, 0, 0, 0);
+  backdrop-filter: blur(5px);
+  color: white;
+}
+
+.dropdown-item {
+  color: aliceblue;
+}
+
+.dropdown-item:hover {
+  border-radius: 15px;
+  background-color: rgba(255, 255, 255, 0.904);
+  font-size: 1.2rem;
+}
+
+.show {
+  background-color: rgba(0, 0, 0, 0.37);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.show::after {
+  display: none;
+}
+
+/*----------------------footer-------------------------*/
+
+#footer {
+  margin-top: 50px;
+}
+
+/*----------------------info-------------------------*/
+
+.info {
+  border-radius: 25px;
+  font-size: 1.3rem;
+  margin-inline: 23px;
+  background: radial-gradient(#16161657 0%, #0000002f 100%);
+  color: aliceblue;
+  box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.3);
+  padding: 30px;
+  transition: 0.3s;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.info:hover {
+  box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.438);
 }
