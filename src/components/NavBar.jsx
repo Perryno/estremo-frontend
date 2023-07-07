@@ -7,13 +7,13 @@ const NavBar = () => {
     <nav id="navBar">
       <img id="navLogo" src={logo} alt="Logo estremo" />
 
-      <Link to="/" className="navLayout homeButton">
+      <Link to="/" className="navLayout homeButton ">
         Home
       </Link>
 
       <MyDropdown />
 
-      <div>
+      <div className="mt-2">
         <input type="text" placeholder="Cerca" name="cerca" id="cerca" />
       </div>
     </nav>

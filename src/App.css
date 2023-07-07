@@ -5,7 +5,7 @@
   background: linear-gradient(120deg, rgb(81, 220, 255), rgb(138, 77, 156));
   box-sizing: border-box;
   padding-inline: 20px;
-  font-family: "Nunito Sans", sans-serif;
+  font-family: "Work Sans", sans-serif;
 }
 
 .filter {
@@ -21,9 +21,9 @@
 
 #navBar {
   font-size: 1.3rem;
-  font-weight: 600;
+
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   margin-bottom: 40px;
 }
@@ -83,17 +83,12 @@
 }
 
 @media screen and (max-width: 768px) {
-  .menu-toggle {
-    display: block;
-  }
-
-  .menu {
-    display: none;
-  }
-
-  .menu.active {
-    display: flex;
+  #navBar {
     flex-direction: column;
+  }
+
+  #navbar {
+    margin-top: 20px;
   }
 }
 
@@ -112,7 +107,7 @@
 }
 
 .homeButton {
-  width: 20%;
+  max-width: 200px;
   transition: 0.3s;
 }
 
@@ -129,8 +124,32 @@
   font-weight: 600;
   margin-bottom: 100px;
   cursor: pointer;
+  animation: bounce 2s ease infinite;
 }
 
+@keyframes bounce {
+  50% {
+    transform: translateY(0%);
+  }
+  80% {
+    transform: translateY(-15%);
+  }
+  90% {
+    transform: translateY(0%);
+  }
+  95% {
+    transform: translateY(-7%);
+  }
+  97% {
+    transform: translateY(0%);
+  }
+  99% {
+    transform: translateY(-3%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
 #assembla:hover {
   cursor: pointer;
   text-decoration: underline;
@@ -223,10 +242,35 @@
 
 /*----------------------footer-------------------------*/
 
-#footer {
-  margin-top: 50px;
+.footer {
+  margin-top: 90px;
+  margin-bottom: 20px;
+}
+.footerItem {
+  color: rgb(218, 218, 218);
+  text-decoration: none;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
+.footerItem:hover {
+  color: white;
+}
+.underFooter {
+  color: rgb(202, 202, 202);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+  margin-bottom: 10px;
 }
 
+.iconaCursore {
+  margin-right: 5px;
+  margin-bottom: 3px;
+}
+
+.topFooter {
+  margin-bottom: 30px;
+}
+.cp {
+  font-size: 0.9rem;
+}
 /*----------------------info-------------------------*/
 
 .info {
@@ -239,6 +283,10 @@
   padding: 30px;
   transition: 0.3s;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+
+  margin-top: 70px;
+  max-width: 1300px;
+  margin-inline: auto;
 }
 
 .info:hover {

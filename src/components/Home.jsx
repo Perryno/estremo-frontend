@@ -10,12 +10,12 @@ const Home = () => {
       </div>
       <div>
         <h3 className="text-start">PC preassemblati</h3>
-        <div className="cards">
-          <div class="card rem18">
-            <img src={pcAzzurro} class="card-img-top" alt="..." />
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">
+        <div className="cards container row">
+          <div className="card rem18 col-sm-12 col-md-6 col-lg-3">
+            <img src={pcAzzurro} className="card-img-top" alt="..." />
+            <div className="card-body">
+              <h5 className="card-title">Card title</h5>
+              <p className="card-text">
                 Some quick example text to build on the card title and make up the bulk of the card's content.
               </p>
               <a href="#" class="btn btn-primary">

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 function MyDropdown() {
   return (
     <>
-      <Dropdown>
+      <Dropdown className="mt-2">
         <Dropdown.Toggle variant="grey" className="border-0 MyDropdown" id="dropdown-basic">
           Componenti
         </Dropdown.Toggle>
