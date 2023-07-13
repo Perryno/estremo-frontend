@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import pcAzzurro from "../assets/azzurro.webp";
 const Home = () => {
   return (
@@ -5,7 +6,9 @@ const Home = () => {
       <div>
         <h1 id="estremoGaming">ESTREMO GAMING</h1>
         <div className="assemblaCont">
-          <h2 id="assembla">Assembla il tuo PC</h2>
+          <Link to={"build"} className="text-decoration-none">
+            <h2 id="assembla">Assembla il tuo PC</h2>
+          </Link>
         </div>
       </div>
       <div>
@@ -18,7 +21,7 @@ const Home = () => {
               <p className="card-text">
                 Some quick example text to build on the card title and make up the bulk of the card's content.
               </p>
-              <a href="#" class="btn btn-primary">
+              <a href="daMettere.com" className="btn btn-primary">
                 Go somewhere
               </a>
             </div>

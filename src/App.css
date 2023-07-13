@@ -292,3 +292,105 @@
 .info:hover {
   box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.438);
 }
+
+/*----------------------intel o amd-------------------------*/
+
+.logoBox img {
+  width: 90%;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+}
+.logoBox {
+  border-radius: 25px;
+
+  margin-inline: 23px;
+  background: radial-gradient(#16161657 0%, #0000002f 100%);
+
+  box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0);
+  padding: 30px;
+  transition: 0.3s;
+  border: none;
+
+  margin-inline: auto;
+}
+
+.logoBox:hover {
+  box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.4);
+}
+.selected {
+  box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.3);
+}
+
+.intel img {
+  width: 60%;
+}
+/*----------------------selezionaScritta-------------------------*/
+.selezionaScritta {
+  margin-bottom: 60px;
+  color: aliceblue;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+/*----------------------freccia-------------------------*/
+
+.avantiDiv {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 4%;
+  margin-top: 20px;
+  transition: 3s ease-in-out;
+}
+
+.freccia {
+  background-color: rgba(0, 0, 0, 0.151);
+  border-radius: 20px;
+  color: aliceblue;
+  padding: 5px;
+  border: none;
+  box-sizing: border-box;
+
+  width: 100%;
+  font-size: 1.3rem;
+
+  text-decoration: none;
+}
+.freccia {
+  text-align: center;
+  font-size: 28px;
+  padding: 14px;
+  width: 220px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 36px;
+  box-shadow: 0 10px 20px -8px rgba(0, 0, 0, 0.5);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.freccia {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.freccia:after {
+  content: "»";
+  position: absolute;
+  opacity: 0;
+  top: 14px;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.freccia:hover {
+  padding-right: 24px;
+  padding-left: 8px;
+}
+
+.freccia:hover:after {
+  opacity: 1;
+  right: 10px;
+}
