@@ -29,7 +29,7 @@ class Ssd extends Component {
     const { ssds, selectedSsd } = this.state;
     return (
       <div>
-        <h3>Seleziona un SSD</h3>
+        <h2 className="selezionaScritta">Seleziona un SSD</h2>
         <div className="d-flex">
           {ssds.map((ssd) => (
             <div className={selectedSsd === ssd ? "selected" : ""} key={ssd.id}>
@@ -37,7 +37,14 @@ class Ssd extends Component {
             </div>
           ))}
         </div>
-        {selectedSsd && <Link to="/psu">Freccia</Link>}
+        {selectedSsd && (
+          <div className="avantiDiv">
+            {" "}
+            <Link className="freccia" to="/psu">
+              AVANTI
+            </Link>
+          </div>
+        )}
       </div>
     );
   }

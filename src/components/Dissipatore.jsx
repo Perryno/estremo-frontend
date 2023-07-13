@@ -31,7 +31,7 @@ class Dissipatore extends Component {
     return (
       <div>
         <div>
-          <h3>Seleziona un dissipatore</h3>
+          <h3 className="selezionaScritta">Seleziona un dissipatore</h3>
           <div className="d-flex">
             {dissipatori.map((dissipatore) => (
               <div className={selectedDissipatore === dissipatore ? "selected" : ""} key={dissipatore.id}>
@@ -40,7 +40,14 @@ class Dissipatore extends Component {
             ))}
           </div>
         </div>
-        {selectedDissipatore && <Link to="/gpu">freccia</Link>}
+        {selectedDissipatore && (
+          <div className="avantiDiv">
+            {" "}
+            <Link className="freccia" to="/gpu">
+              AVANTI
+            </Link>
+          </div>
+        )}
       </div>
     );
   }

@@ -37,7 +37,7 @@ class Motherboard extends Component {
     return (
       <div>
         <div>
-          <h2>Seleziona una scheda madre</h2>
+          <h3 className="selezionaScritta">Seleziona una scheda madre</h3>
           <div className="d-flex">
             {motherboards.map((motherboard) => (
               <div className={selectedMotherboard === motherboard ? "selected" : ""} key={motherboard.id}>
@@ -46,7 +46,14 @@ class Motherboard extends Component {
             ))}
           </div>
         </div>
-        {selectedMotherboard && <Link to="/ram">Freccia</Link>}
+        {selectedMotherboard && (
+          <div className="avantiDiv">
+            {" "}
+            <Link className="freccia" to="/ram">
+              AVANTI
+            </Link>
+          </div>
+        )}
       </div>
     );
   }

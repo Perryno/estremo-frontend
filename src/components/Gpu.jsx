@@ -29,7 +29,7 @@ class Gpu extends Component {
     const { gpus, selectedGpu } = this.state;
     return (
       <div>
-        <h3>Seleziona una scheda grafica</h3>
+        <h2 className="selezionaScritta">Seleziona una scheda grafica</h2>
         <div className="d-flex">
           {gpus.map((gpu) => (
             <div className={selectedGpu === gpu ? "selected" : ""} key={gpu.id}>
@@ -37,7 +37,14 @@ class Gpu extends Component {
             </div>
           ))}
         </div>
-        {selectedGpu && <Link to="/ssd">Freccia</Link>}
+        {selectedGpu && (
+          <div className="avantiDiv">
+            {" "}
+            <Link className="freccia" to="/ssd">
+              AVANTI
+            </Link>
+          </div>
+        )}
       </div>
     );
   }

@@ -30,7 +30,7 @@ class Ram extends Component {
     return (
       <div>
         <div>
-          <h3>Seleziona una RAM</h3>
+          <h3 className="selezionaScritta">Seleziona una RAM</h3>
           <div className="d-flex">
             {rams.map((ram) => (
               <div className={selectedRam === ram ? "selected" : ""} key={ram.id}>
@@ -39,7 +39,14 @@ class Ram extends Component {
             ))}
           </div>
         </div>
-        {selectedRam && <Link to="/dissipatore">Freccia</Link>}
+        {selectedRam && (
+          <div className="avantiDiv">
+            {" "}
+            <Link className="freccia" to="/dissipatore">
+              AVANTI
+            </Link>
+          </div>
+        )}
       </div>
     );
   }

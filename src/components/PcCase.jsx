@@ -29,7 +29,7 @@ class PcCase extends Component {
     const { pcCases, selectedPcCase } = this.state;
     return (
       <div>
-        <h3>Seleziona un Pc Case</h3>
+        <h2 className="selezionaScritta">Seleziona un Pc Case</h2>
         <div className="d-flex">
           {pcCases.map((pcCase) => (
             <div className={selectedPcCase === pcCase ? "selected" : ""} key={pcCase.id}>
@@ -37,7 +37,14 @@ class PcCase extends Component {
             </div>
           ))}
         </div>
-        {selectedPcCase && <Link to="/summary">Freccia</Link>}
+        {selectedPcCase && (
+          <div className="avantiDiv">
+            {" "}
+            <Link className="freccia" to="/summary">
+              AVANTI
+            </Link>
+          </div>
+        )}
       </div>
     );
   }

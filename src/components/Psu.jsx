@@ -29,7 +29,7 @@ class Psu extends Component {
     const { psus, selectedPsu } = this.state;
     return (
       <div>
-        <h3>Seleziona un PSU</h3>
+        <h2 className="selezionaScritta">Seleziona un PSU</h2>
         <div className="d-flex">
           {psus.map((psu) => (
             <div className={selectedPsu === psu ? "selected" : ""} key={psu.id}>
@@ -37,7 +37,14 @@ class Psu extends Component {
             </div>
           ))}
         </div>
-        {selectedPsu && <Link to="/pccase">Freccia</Link>}
+        {selectedPsu && (
+          <div className="avantiDiv">
+            {" "}
+            <Link className="freccia" to="/pccase">
+              AVANTI
+            </Link>
+          </div>
+        )}
       </div>
     );
   }
