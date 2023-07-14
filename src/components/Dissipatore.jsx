@@ -28,21 +28,31 @@ class Dissipatore extends Component {
   render() {
     const { dissipatori, selectedDissipatore } = this.state;
 
+    // Ordina gli elementi in base al prezzo
+    const sortedDissipatori = dissipatori.sort((a, b) => a.prezzo - b.prezzo);
     return (
       <div>
         <div>
-          <h3 className="selezionaScritta">Seleziona un dissipatore</h3>
-          <div className="d-flex">
-            {dissipatori.map((dissipatore) => (
-              <div className={selectedDissipatore === dissipatore ? "selected" : ""} key={dissipatore.id}>
-                <button onClick={() => this.handleDissipatoreSelection(dissipatore)}>{dissipatore.nome}</button>
+          <h2 className="selezionaScritta">Seleziona un dissipatore</h2>
+          <div className="componentContainer row gap-3">
+            {sortedDissipatori.map((dissipatore) => (
+              <div
+                key={dissipatore.id}
+                className="onClickDiv col-sm-12 col-md-5 col-xl-2"
+                onClick={() => this.handleDissipatoreSelection(dissipatore)}
+              >
+                <div className={selectedDissipatore === dissipatore ? "selected divButton" : "divButton"}>
+                  <div className="Layout">
+                    <div className="fs-4 mb-1">{dissipatore.nome}</div>
+                    <div>Prezzo: {dissipatore.prezzo}&euro;</div>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
         </div>
         {selectedDissipatore && (
           <div className="avantiDiv">
-            {" "}
             <Link className="freccia" to="/gpu">
               AVANTI
             </Link>

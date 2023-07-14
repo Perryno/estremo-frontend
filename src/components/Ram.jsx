@@ -27,21 +27,35 @@ class Ram extends Component {
 
   render() {
     const { rams, selectedRam } = this.state;
+
+    // Ordina gli elementi in base al prezzo
+    const sortedRams = rams.sort((a, b) => a.prezzo - b.prezzo);
+
     return (
       <div>
         <div>
-          <h3 className="selezionaScritta">Seleziona una RAM</h3>
-          <div className="d-flex">
-            {rams.map((ram) => (
-              <div className={selectedRam === ram ? "selected" : ""} key={ram.id}>
-                <button onClick={() => this.handleRamSelection(ram)}>{ram.nome}</button>
+          <h2 className="selezionaScritta">Seleziona una RAM</h2>
+          <div className="componentContainer row gap-3">
+            {sortedRams.map((ram) => (
+              <div
+                className="onClickDiv col-sm-12 col-md-5 col-xl-2"
+                onClick={() => this.handleRamSelection(ram)}
+                key={ram.id}
+              >
+                <div className={selectedRam === ram ? "selected divButton" : "divButton"}>
+                  <div className="Layout">
+                    <div className="fs-4 mb-1">{ram.nome}</div>
+                    <div>Capacità: {ram.capacita}GB</div>
+                    <div>Frequenza: {ram.frequenza}MHz</div>
+                    <div>Prezzo: {ram.prezzo}&euro;</div>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
         </div>
         {selectedRam && (
           <div className="avantiDiv">
-            {" "}
             <Link className="freccia" to="/dissipatore">
               AVANTI
             </Link>

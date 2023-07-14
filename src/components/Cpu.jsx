@@ -34,14 +34,26 @@ class Cpu extends Component {
 
   render() {
     const { processors, selectedProcessor } = this.state;
+
+    // Ordina gli elementi in base al prezzo
+    const sortedProcessors = processors.sort((a, b) => a.prezzo - b.prezzo);
     return (
       <div>
         <div>
           <h2 className="selezionaScritta">Seleziona un processore</h2>
-          <div className="d-flex">
-            {processors.map((processor) => (
-              <div className={selectedProcessor === processor ? "selected" : ""} key={processor.id}>
-                <button onClick={() => this.handleProcessorSelection(processor)}>{processor.nome}</button>
+          <div className=" componentContainer row gap-3 ">
+            {sortedProcessors.map((processor) => (
+              <div
+                key={processor.id}
+                className="onClickDiv col-sm-12 col-md-5 col-xl-2 "
+                onClick={() => this.handleProcessorSelection(processor)}
+              >
+                <div className={selectedProcessor === processor ? "selected divButton  " : "divButton  "}>
+                  <div className="Layout">
+                    <div className="fs-4 mb-1">{processor.nome}</div>
+                    <div>Prezzo: {processor.prezzo}&euro;</div>
+                  </div>
+                </div>
               </div>
             ))}
           </div>

@@ -34,14 +34,26 @@ class Motherboard extends Component {
 
   render() {
     const { motherboards, selectedMotherboard } = this.state;
+
+    // Ordina gli elementi in base al prezzo
+    const sortedMotherboards = motherboards.sort((a, b) => a.prezzo - b.prezzo);
     return (
       <div>
         <div>
-          <h3 className="selezionaScritta">Seleziona una scheda madre</h3>
-          <div className="d-flex">
-            {motherboards.map((motherboard) => (
-              <div className={selectedMotherboard === motherboard ? "selected" : ""} key={motherboard.id}>
-                <button onClick={() => this.handleMotherboardSelection(motherboard)}>{motherboard.nome}</button>
+          <h2 className="selezionaScritta">Seleziona una scheda madre</h2>
+          <div className="componentContainer row gap-3">
+            {sortedMotherboards.map((motherboard) => (
+              <div
+                className="onClickDiv col-sm-12 col-md-5 col-xl-2"
+                key={motherboard.id}
+                onClick={() => this.handleMotherboardSelection(motherboard)}
+              >
+                <div className={selectedMotherboard === motherboard ? "selected divButton" : "divButton"}>
+                  <div className="Layout">
+                    <div className="fs-4 mb-1">{motherboard.nome}</div>
+                    <div>Prezzo: {motherboard.prezzo}&euro;</div>
+                  </div>
+                </div>
               </div>
             ))}
           </div>

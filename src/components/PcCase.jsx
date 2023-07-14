@@ -27,19 +27,32 @@ class PcCase extends Component {
 
   render() {
     const { pcCases, selectedPcCase } = this.state;
+
+    // Ordina gli elementi in base al prezzo
+    const sortedPcCases = pcCases.sort((a, b) => a.prezzo - b.prezzo);
     return (
       <div>
-        <h2 className="selezionaScritta">Seleziona un Pc Case</h2>
-        <div className="d-flex">
-          {pcCases.map((pcCase) => (
-            <div className={selectedPcCase === pcCase ? "selected" : ""} key={pcCase.id}>
-              <button onClick={() => this.handlePcCaseSelection(pcCase)}>{pcCase.nome}</button>
-            </div>
-          ))}
+        <div>
+          <h2 className="selezionaScritta">Seleziona un Pc Case</h2>
+          <div className="componentContainer row gap-3">
+            {sortedPcCases.map((pcCase) => (
+              <div
+                key={pcCase.id}
+                className="onClickDiv col-sm-12 col-md-5 col-xl-2"
+                onClick={() => this.handlePcCaseSelection(pcCase)}
+              >
+                <div className={selectedPcCase === pcCase ? "selected divButton" : "divButton"}>
+                  <div className="Layout">
+                    <div className="fs-4 mb-1">{pcCase.nome}</div>
+                    <div>prezzo: {pcCase.prezzo}&euro;</div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
         {selectedPcCase && (
           <div className="avantiDiv">
-            {" "}
             <Link className="freccia" to="/summary">
               AVANTI
             </Link>

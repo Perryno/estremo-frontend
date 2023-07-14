@@ -415,3 +415,39 @@
   opacity: 1;
   right: 10px;
 }
+
+/*----------------------sceltaComponenti-------------------------*/
+.componentContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.divButton {
+  border-radius: 25px;
+  background: radial-gradient(#16161657 0%, #0000002f 100%);
+  cursor: pointer;
+
+  transition: 0.3s;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+  border: none;
+  margin-inline: auto;
+  padding: 30px;
+  color: aliceblue;
+}
+
+.divButton:hover {
+  box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.4);
+}
+
+.onClickDiv {
+  flex-grow: 1;
+}
+
+/*----------------------cpu-------------------------*/
+.Layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

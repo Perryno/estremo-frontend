@@ -27,19 +27,33 @@ class Gpu extends Component {
 
   render() {
     const { gpus, selectedGpu } = this.state;
+
+    // Ordina gli elementi in base al prezzo
+    const sortedGpus = gpus.sort((a, b) => a.prezzo - b.prezzo);
     return (
       <div>
-        <h2 className="selezionaScritta">Seleziona una scheda grafica</h2>
-        <div className="d-flex">
-          {gpus.map((gpu) => (
-            <div className={selectedGpu === gpu ? "selected" : ""} key={gpu.id}>
-              <button onClick={() => this.handleGpuSelection(gpu)}>{gpu.nome}</button>
-            </div>
-          ))}
+        <div>
+          <h2 className="selezionaScritta">Seleziona una scheda grafica</h2>
+          <div className="componentContainer row gap-3">
+            {sortedGpus.map((gpu) => (
+              <div
+                key={gpu.id}
+                className="onClickDiv col-sm-12 col-md-5 col-xl-2"
+                onClick={() => this.handleGpuSelection(gpu)}
+              >
+                <div className={selectedGpu === gpu ? "selected divButton" : "divButton"}>
+                  <div className="Layout">
+                    <div className="fs-4 mb-1">{gpu.nome}</div>
+                    <div>VRAM: {gpu.vram}GB</div>
+                    <div>prezzo: {gpu.prezzo}&euro;</div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
         {selectedGpu && (
           <div className="avantiDiv">
-            {" "}
             <Link className="freccia" to="/ssd">
               AVANTI
             </Link>
