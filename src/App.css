@@ -12,6 +12,27 @@
   background-color: #00000036;
 }
 
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: linear-gradient(120deg, #7d6db2, #89509e);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.19);
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, 0.29);
+}
+
 /*----------------------navBar-------------------------*/
 
 #navLogo {
@@ -321,7 +342,7 @@
   box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.4);
 }
 .selected {
-  box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.4);
 }
 
 .intel img {
