@@ -34,7 +34,11 @@ class Ram extends Component {
     return (
       <div>
         <div>
-          <h2 className="selezionaScritta">Seleziona una RAM</h2>
+          <div className="selPrice mb-5">
+            {" "}
+            <h3 className="selezionaScritta ">Seleziona delle RAM</h3>
+            <div className="totalPrice">Totale: {this.props.totalPrice}&euro;</div>
+          </div>
           <div className="componentContainer row gap-3">
             {sortedRams.map((ram) => (
               <div

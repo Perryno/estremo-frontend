@@ -34,38 +34,105 @@ class App extends Component {
     selectedPcCase: null,
     totalPrice: 0
   };
+
+  calculateTotalPrice = () => {
+    const {
+      selectedDissipatore,
+      selectedGpu,
+      selectedMotherboard,
+      selectedPcCase,
+      selectedProcessor,
+      selectedPsu,
+      selectedRam,
+      selectedSsd
+    } = this.state;
+
+    let totalPrice = 0;
+
+    // Aggiungi i prezzi dei singoli componenti al prezzo totale
+    if (selectedDissipatore) {
+      totalPrice += selectedDissipatore.prezzo;
+    }
+    if (selectedGpu) {
+      totalPrice += selectedGpu.prezzo;
+    }
+    if (selectedMotherboard) {
+      totalPrice += selectedMotherboard.prezzo;
+    }
+    if (selectedPcCase) {
+      totalPrice += selectedPcCase.prezzo;
+    }
+    if (selectedProcessor) {
+      totalPrice += selectedProcessor.prezzo;
+    }
+    if (selectedPsu) {
+      totalPrice += selectedPsu.prezzo;
+    }
+    if (selectedRam) {
+      totalPrice += selectedRam.prezzo;
+    }
+    if (selectedSsd) {
+      totalPrice += selectedSsd.prezzo;
+    }
+
+    return totalPrice;
+  };
+  handleResetState = (resetState) => {
+    this.setState(resetState);
+  };
   handleBrandSelection = (brand) => {
     this.setState({
       selectedBrand: brand
     });
   };
   handleProcessorSelection = (processor) => {
-    this.setState({ selectedProcessor: processor });
+    this.setState({ selectedProcessor: processor }, () => {
+      this.setState({ totalPrice: this.calculateTotalPrice() });
+    });
   };
+
   handleMotherboardSelection = (motherboard) => {
-    this.setState({ selectedMotherboard: motherboard });
+    this.setState({ selectedMotherboard: motherboard }, () => {
+      this.setState({ totalPrice: this.calculateTotalPrice() });
+    });
   };
 
   handleRamSelection = (ram) => {
-    this.setState({ selectedRam: ram });
+    this.setState({ selectedRam: ram }, () => {
+      this.setState({ totalPrice: this.calculateTotalPrice() });
+    });
   };
 
   handleDissipatoreSelection = (dissipatore) => {
-    this.setState({ selectedDissipatore: dissipatore });
+    this.setState({ selectedDissipatore: dissipatore }, () => {
+      this.setState({ totalPrice: this.calculateTotalPrice() });
+    });
   };
 
   handleGpuSelection = (gpu) => {
-    this.setState({ selectedGpu: gpu });
+    this.setState({ selectedGpu: gpu }, () => {
+      this.setState({ totalPrice: this.calculateTotalPrice() });
+    });
   };
+
   handleSsdSelection = (ssd) => {
-    this.setState({ selectedSsd: ssd });
+    this.setState({ selectedSsd: ssd }, () => {
+      this.setState({ totalPrice: this.calculateTotalPrice() });
+    });
   };
+
   handlePsuSelection = (psu) => {
-    this.setState({ selectedPsu: psu });
+    this.setState({ selectedPsu: psu }, () => {
+      this.setState({ totalPrice: this.calculateTotalPrice() });
+    });
   };
+
   handlePcCaseSelection = (pcCase) => {
-    this.setState({ selectedPcCase: pcCase });
+    this.setState({ selectedPcCase: pcCase }, () => {
+      this.setState({ totalPrice: this.calculateTotalPrice() });
+    });
   };
+
   render() {
     const {
       selectedBrand,
@@ -76,13 +143,14 @@ class App extends Component {
       selectedGpu,
       selectedSsd,
       selectedPsu,
-      selectedPcCase
+      selectedPcCase,
+      totalPrice
     } = this.state;
     return (
       <div>
         <BrowserRouter>
           <div className="App ">
-            <NavBar />
+            <NavBar onResetState={this.handleResetState} />
 
             <Routes>
               <Route path="/" element={<Home />} />
@@ -92,24 +160,39 @@ class App extends Component {
               <Route path="/build" element={<Build onBrandSelected={this.handleBrandSelection} />} />
               <Route
                 path="/cpu"
-                element={<Cpu onProcessorSelected={this.handleProcessorSelection} selectedBrand={selectedBrand} />}
+                element={
+                  <Cpu
+                    totalPrice={totalPrice}
+                    onProcessorSelected={this.handleProcessorSelection}
+                    selectedBrand={selectedBrand}
+                  />
+                }
               />
               <Route
                 path="/motherboard"
                 element={
-                  <Motherboard onMotherboardSelected={this.handleMotherboardSelection} selectedBrand={selectedBrand} />
+                  <Motherboard
+                    totalPrice={totalPrice}
+                    onMotherboardSelected={this.handleMotherboardSelection}
+                    selectedBrand={selectedBrand}
+                  />
                 }
               />
-              <Route path="/ram" element={<Ram onRamSelected={this.handleRamSelection} />} />
+              <Route path="/ram" element={<Ram totalPrice={totalPrice} onRamSelected={this.handleRamSelection} />} />
 
               <Route
                 path="/dissipatore"
-                element={<Dissipatore onDissipatoreSelected={this.handleDissipatoreSelection} />}
+                element={
+                  <Dissipatore totalPrice={totalPrice} onDissipatoreSelected={this.handleDissipatoreSelection} />
+                }
               />
-              <Route path="/gpu" element={<Gpu onGpuSelected={this.handleGpuSelection} />} />
-              <Route path="/ssd" element={<Ssd onSsdSelected={this.handleSsdSelection} />} />
-              <Route path="/psu" element={<Psu onPsuSelected={this.handlePsuSelection} />} />
-              <Route path="/pccase" element={<PcCase onPcCaseSelected={this.handlePcCaseSelection} />} />
+              <Route path="/gpu" element={<Gpu totalPrice={totalPrice} onGpuSelected={this.handleGpuSelection} />} />
+              <Route path="/ssd" element={<Ssd totalPrice={totalPrice} onSsdSelected={this.handleSsdSelection} />} />
+              <Route path="/psu" element={<Psu totalPrice={totalPrice} onPsuSelected={this.handlePsuSelection} />} />
+              <Route
+                path="/pccase"
+                element={<PcCase totalPrice={totalPrice} onPcCaseSelected={this.handlePcCaseSelection} />}
+              />
               <Route
                 path="/summary"
                 element={

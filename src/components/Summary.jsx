@@ -27,18 +27,6 @@ class Summary extends Component {
         <p>SSD selezionato: {selectedSsd && selectedSsd.nome}</p>
         <p>Alimentatore selezionato: {selectedPsu && selectedPsu.nome}</p>
         <p>Cabinet selezionato: {selectedPcCase && selectedPcCase.nome}</p>
-        <p>
-          prezzo totale:&nbsp;
-          {selectedProcessor.prezzo +
-            selectedPsu.prezzo +
-            selectedRam.prezzo +
-            selectedSsd.prezzo +
-            selectedDissipatore.prezzo +
-            selectedGpu.prezzo +
-            selectedMotherboard.prezzo +
-            selectedPcCase.prezzo}
-          &euro;
-        </p>
       </div>
     );
   }

@@ -33,7 +33,11 @@ class Dissipatore extends Component {
     return (
       <div>
         <div>
-          <h2 className="selezionaScritta">Seleziona un dissipatore</h2>
+          <div className="selPrice mb-5">
+            {" "}
+            <h3 className="selezionaScritta ">Seleziona un dissipatore</h3>
+            <div className="totalPrice">Totale: {this.props.totalPrice}&euro;</div>
+          </div>
           <div className="componentContainer row gap-3">
             {sortedDissipatori.map((dissipatore) => (
               <div

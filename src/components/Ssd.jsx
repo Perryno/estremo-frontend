@@ -44,7 +44,11 @@ class Ssd extends Component {
     return (
       <div>
         <div>
-          <h2 className="selezionaScritta">Seleziona un SSD</h2>
+          <div className="selPrice mb-5">
+            {" "}
+            <h3 className="selezionaScritta ">Seleziona un ssd</h3>
+            <div className="totalPrice">Totale: {this.props.totalPrice}&euro;</div>
+          </div>
           <div className="componentContainer row gap-3">
             {sortedSsds.map((ssd) => (
               <div

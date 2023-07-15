@@ -22,8 +22,8 @@ class Build extends Component {
 
     return (
       <div>
-        <h3 className="selezionaScritta">Seleziona un brand</h3>
-        <div className="buttonContainer gap-4 row">
+        <h3 className="selezionaScritta ">Seleziona un brand</h3>
+        <div className="buttonContainer gap-4 row mt-5">
           <button
             onClick={() => this.handleBrandSelection("Intel")}
             className={`intel logoBox col-md-5  ${selectedBrand === "Intel" ? "selected" : ""}`}

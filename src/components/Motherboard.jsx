@@ -40,7 +40,12 @@ class Motherboard extends Component {
     return (
       <div>
         <div>
-          <h2 className="selezionaScritta">Seleziona una scheda madre</h2>
+          <div className="selPrice mb-5">
+            {" "}
+            <h3 className="selezionaScritta ">Seleziona una scheda madre</h3>
+            <div className="totalPrice">Totale: {this.props.totalPrice}&euro;</div>
+          </div>
+
           <div className="componentContainer row gap-3">
             {sortedMotherboards.map((motherboard) => (
               <div
