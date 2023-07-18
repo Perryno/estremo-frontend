@@ -2,10 +2,10 @@
 
 .App {
   text-align: center;
-  background: linear-gradient(120deg, rgb(81, 220, 255), rgb(138, 77, 156));
   box-sizing: border-box;
   padding-inline: 20px;
   font-family: "Work Sans", sans-serif;
+  background-color: #7d6db2;
 }
 
 .filter {
@@ -187,12 +187,6 @@
 
 .rem18 {
   width: 18rem;
-}
-
-.card {
-  background: linear-gradient(180deg, rgba(209, 252, 255, 0.658), white);
-  color: #161617;
-  border: none;
 }
 
 /*----------------------Dropdown-------------------------*/
@@ -485,4 +479,89 @@
 .notFound {
   color: aliceblue;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+/*----------------------preassemblatiContainer-------------------------*/
+
+.preassemblatiContainer {
+  display: flex;
+  justify-content: space-around;
+}
+
+/*----------------------cards-------------------------*/
+
+.red-card {
+  background: linear-gradient(180deg, rgba(255, 200, 138, 0.658), white);
+}
+
+.blue-card {
+  background: linear-gradient(180deg, rgba(209, 252, 255, 0.658), white);
+}
+
+.card {
+  color: #161617;
+  border: none;
+}
+
+.card img {
+  height: 100%;
+}
+
+.card-text {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/*----------------------riepilogo-------------------------*/
+.containerRiepilogo {
+  display: flex;
+  margin-bottom: 60px;
+}
+.riepilogo {
+  font-size: 1.3rem;
+  width: 45%;
+}
+
+.fps {
+  width: 45%;
+}
+
+.fps img {
+  width: 50px;
+  height: 50px;
+}
+
+.gioco {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.giocoM {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+@media (max-width: 1100px) {
+  .containerRiepilogo {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .riepilogo {
+    width: 90%;
+  }
+
+  .fps {
+    width: 90%;
+  }
+}
+/*----------------------paypal-------------------------*/
+#zoid-paypal-buttons-uid_fc26d34389_mtq6ntq6mty div:first-child div {
+  width: 50%;
+}
+
+@media (max-width: 758px) {
+  #zoid-paypal-buttons-uid_fc26d34389_mtq6ntq6mty div:first-child div {
+    width: 100%;
+  }
 }

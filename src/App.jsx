@@ -1,25 +1,27 @@
 import { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "./App.css";
 
-import Build from "components/Build";
-import Cpu from "components/Cpu";
+import Build from "components/AssemblaPc/Build";
+import Cpu from "components/AssemblaPc/Cpu";
 import Footer from "./components/Footer";
 import NavBar from "./components/NavBar";
 import Home from "./components/Home";
 import Info from "./components/Info";
 import Fondatori from "components/Fondatori";
 import Lavora from "components/Lavora";
-import Motherboard from "components/Motherboard";
-import Ram from "components/Ram";
-import Dissipatore from "components/Dissipatore";
-import Gpu from "components/Gpu";
-import Ssd from "components/Ssd";
-import Psu from "components/Psu";
-import PcCase from "components/PcCase";
-import Summary from "components/Summary";
+import Motherboard from "components/AssemblaPc/Motherboard";
+import Ram from "components/AssemblaPc/Ram";
+import Dissipatore from "components/AssemblaPc/Dissipatore";
+import Gpu from "components/AssemblaPc/Gpu";
+import Ssd from "components/AssemblaPc/Ssd";
+import Psu from "components/AssemblaPc/Psu";
+import PcCase from "components/AssemblaPc/PcCase";
+import Summary from "components/AssemblaPc/Summary";
 import NotFound from "components/NotFound";
+import DettagliPreassemblato from "components/DettagliPreassemblato";
+import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 
 class App extends Component {
   state = {
@@ -148,72 +150,78 @@ class App extends Component {
     } = this.state;
     return (
       <div>
-        <BrowserRouter>
-          <div className="App ">
-            <NavBar onResetState={this.handleResetState} />
+        <PayPalScriptProvider
+          options={{ clientId: "AXai-geAXdhjBK_8IAGGDUwOr5s8cE2gphvhwXiGssWIBqKmsgq0fSmhgyDMarkiNbb3_cbvewyoUFrM" }}
+        >
+          <BrowserRouter>
+            <div className="App ">
+              <NavBar onResetState={this.handleResetState} />
 
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/info" element={<Info />} />
-              <Route path="/lavora" element={<Lavora />} />
-              <Route path="/fondatori" element={<Fondatori />} />
-              <Route path="/build" element={<Build onBrandSelected={this.handleBrandSelection} />} />
-              <Route
-                path="/cpu"
-                element={
-                  <Cpu
-                    totalPrice={totalPrice}
-                    onProcessorSelected={this.handleProcessorSelection}
-                    selectedBrand={selectedBrand}
-                  />
-                }
-              />
-              <Route
-                path="/motherboard"
-                element={
-                  <Motherboard
-                    totalPrice={totalPrice}
-                    onMotherboardSelected={this.handleMotherboardSelection}
-                    selectedBrand={selectedBrand}
-                  />
-                }
-              />
-              <Route path="/ram" element={<Ram totalPrice={totalPrice} onRamSelected={this.handleRamSelection} />} />
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/info" element={<Info />} />
+                <Route path="/lavora" element={<Lavora />} />
+                <Route path="/fondatori" element={<Fondatori />} />
+                <Route path="/build" element={<Build onBrandSelected={this.handleBrandSelection} />} />
+                <Route
+                  path="/cpu"
+                  element={
+                    <Cpu
+                      totalPrice={totalPrice}
+                      onProcessorSelected={this.handleProcessorSelection}
+                      selectedBrand={selectedBrand}
+                    />
+                  }
+                />
+                <Route
+                  path="/motherboard"
+                  element={
+                    <Motherboard
+                      totalPrice={totalPrice}
+                      onMotherboardSelected={this.handleMotherboardSelection}
+                      selectedBrand={selectedBrand}
+                    />
+                  }
+                />
+                <Route path="/ram" element={<Ram totalPrice={totalPrice} onRamSelected={this.handleRamSelection} />} />
 
-              <Route
-                path="/dissipatore"
-                element={
-                  <Dissipatore totalPrice={totalPrice} onDissipatoreSelected={this.handleDissipatoreSelection} />
-                }
-              />
-              <Route path="/gpu" element={<Gpu totalPrice={totalPrice} onGpuSelected={this.handleGpuSelection} />} />
-              <Route path="/ssd" element={<Ssd totalPrice={totalPrice} onSsdSelected={this.handleSsdSelection} />} />
-              <Route path="/psu" element={<Psu totalPrice={totalPrice} onPsuSelected={this.handlePsuSelection} />} />
-              <Route
-                path="/pccase"
-                element={<PcCase totalPrice={totalPrice} onPcCaseSelected={this.handlePcCaseSelection} />}
-              />
-              <Route
-                path="/summary"
-                element={
-                  <Summary
-                    selectedBrand={selectedBrand}
-                    selectedProcessor={selectedProcessor}
-                    selectedMotherboard={selectedMotherboard}
-                    selectedRam={selectedRam}
-                    selectedDissipatore={selectedDissipatore}
-                    selectedGpu={selectedGpu}
-                    selectedSsd={selectedSsd}
-                    selectedPsu={selectedPsu}
-                    selectedPcCase={selectedPcCase}
-                  />
-                }
-              />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-            <Footer />
-          </div>
-        </BrowserRouter>
+                <Route
+                  path="/dissipatore"
+                  element={
+                    <Dissipatore totalPrice={totalPrice} onDissipatoreSelected={this.handleDissipatoreSelection} />
+                  }
+                />
+                <Route path="/gpu" element={<Gpu totalPrice={totalPrice} onGpuSelected={this.handleGpuSelection} />} />
+                <Route path="/ssd" element={<Ssd totalPrice={totalPrice} onSsdSelected={this.handleSsdSelection} />} />
+                <Route path="/psu" element={<Psu totalPrice={totalPrice} onPsuSelected={this.handlePsuSelection} />} />
+                <Route
+                  path="/pccase"
+                  element={<PcCase totalPrice={totalPrice} onPcCaseSelected={this.handlePcCaseSelection} />}
+                />
+                <Route
+                  path="/summary"
+                  element={
+                    <Summary
+                      selectedProcessor={selectedProcessor}
+                      selectedMotherboard={selectedMotherboard}
+                      selectedRam={selectedRam}
+                      selectedDissipatore={selectedDissipatore}
+                      selectedGpu={selectedGpu}
+                      selectedSsd={selectedSsd}
+                      selectedPsu={selectedPsu}
+                      selectedPcCase={selectedPcCase}
+                      totalPrice={totalPrice}
+                    />
+                  }
+                />
+                <Route path="/preassemblati/:id" element={<DettagliPreassemblato />} />
+
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+              <Footer />
+            </div>
+          </BrowserRouter>
+        </PayPalScriptProvider>
       </div>
     );
   }

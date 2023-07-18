@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import intel from "../assets/Intel_Core_2020_logo.svg.png";
-import amd from "../assets/Ryzen-AMD-White-Logo.wine.png";
+import intel from "../../assets/Intel_Core_2020_logo.svg.png";
+import amd from "../../assets/Ryzen-AMD-White-Logo.wine.png";
 
 class Build extends Component {
   state = {
