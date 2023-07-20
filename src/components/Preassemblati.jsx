@@ -51,12 +51,12 @@ class Preassemblati extends Component {
 
   render() {
     const { preassemblati } = this.state;
-
+    const sortedPreassemblati = preassemblati.slice().sort((a, b) => a.prezzo - b.prezzo);
     return (
       <div>
         <h3 className="text-start mb-4 h2">PC preassemblati</h3>
         <div className="cards row preassemblatiContainer gap-5">
-          {preassemblati.map((pc) => (
+          {sortedPreassemblati.map((pc) => (
             <div
               className={`card rem18 col-sm-12 col-md-6 col-lg-3 ${pc.cpu.startsWith("R") ? "red-card" : "blue-card"}`}
               key={pc.id}

@@ -26,7 +26,7 @@ class Build extends Component {
         <div className="buttonContainer gap-4 row mt-5">
           <button
             onClick={() => this.handleBrandSelection("Intel")}
-            className={`intel logoBox col-md-5  ${selectedBrand === "Intel" ? "selected" : ""}`}
+            className={`intel logoBox col-md-5  ${selectedBrand === "Intel" ? "buildSelected" : ""}`}
           >
             <div>
               <img src={intel} alt="intel" />
@@ -35,7 +35,7 @@ class Build extends Component {
 
           <button
             onClick={() => this.handleBrandSelection("amd")}
-            className={`amd logoBox col-md-5 ${selectedBrand === "amd" ? "selected" : ""}`}
+            className={`amd logoBox col-md-5 ${selectedBrand === "amd" ? "buildSelected" : ""}`}
           >
             <div>
               <img src={amd} alt="amd" />
