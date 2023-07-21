@@ -15,7 +15,7 @@ const Contatti = () => {
       </div>
       <div>
         <h4>Telefono</h4>
-        <p>Numero di telefono: +39 123 456789</p>
+        <p> +39 123 456789</p>
       </div>
       <div>
         <h4>Indirizzo</h4>
