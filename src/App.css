@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;400;600&family=Nunito+Sans:wght@200;400;500;600&family=Work+Sans:wght@200;400;500;600&display=swap");
 
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css");
+
 .App {
   text-align: center;
   box-sizing: border-box;
@@ -116,7 +118,7 @@
 }
 
 .navLayout {
-  background-color: rgba(0, 0, 0, 0.151);
+  background-color: rgba(0, 0, 0, 0.2);
   border-radius: 20px;
   color: aliceblue;
   padding: 5px;
@@ -125,17 +127,27 @@
   padding-inline: 20px;
   width: 100%;
   font-size: 1.3rem;
-
+  border: 1px solid aliceblue;
   text-decoration: none;
+  backdrop-filter: blur(10px);
 }
 
 .homeButton {
   max-width: 200px;
   transition: 0.3s;
+  margin-bottom: 10px;
 }
 
 .homeButton:hover {
-  background-color: rgba(0, 0, 0, 0);
+  box-shadow: 0 0 10px 10px rgba(145, 145, 145, 0.4);
+  background-color: rgba(0, 0, 0, 0.35);
+}
+.socialMediaLinks {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 9px;
+  padding-bottom: 3px;
 }
 
 /*----------------------Home-------------------------*/
@@ -695,4 +707,10 @@
   padding-block: 8px;
   font-weight: 500;
   font-size: 1.3rem;
+}
+
+.icon {
+  color: aliceblue;
+  margin-inline: 10px;
+  font-size: 25px;
 }

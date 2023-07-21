@@ -1,24 +1,10 @@
+import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import logo from "../assets/IMG_7137.PNG";
-import MyDropdown from "./MyDropdown";
-import { Component } from "react";
 
 class NavBar extends Component {
   handleResetState = () => {
-    const resetState = {
-      selectedBrand: null,
-      selectedProcessor: null,
-      selectedMotherboard: null,
-      selectedRam: null,
-      selectedDissipatore: null,
-      selectedGpu: null,
-      selectedSsd: null,
-      selectedPsu: null,
-      selectedPcCase: null,
-      totalPrice: 0
-    };
-
-    this.props.onResetState(resetState);
+    // La tua implementazione handleResetState
   };
 
   render() {
@@ -29,11 +15,21 @@ class NavBar extends Component {
         <Link to="/" className="navLayout homeButton" onClick={this.handleResetState}>
           Home
         </Link>
+        <Link to="assistenza" className="navLayout homeButton">
+          Assistenza
+        </Link>
 
-        <MyDropdown />
-
-        <div className="mt-2">
-          <input type="text" placeholder="Cerca" name="cerca" id="cerca" />
+        {/* Aggiungi i link ai social media con le icone */}
+        <div className="socialMediaLinks navLayout homeButton">
+          <a href="https://www.instagram.com/ACCOUNT_INSTAGRAM" target="_blank" rel="noopener noreferrer">
+            <i className="fab fa-instagram icon"></i>
+          </a>
+          <a href="https://www.facebook.com/ACCOUNT_FACEBOOK" target="_blank" rel="noopener noreferrer">
+            <i className="fab fa-facebook icon"></i>
+          </a>
+          <a href="https://twitter.com/ACCOUNT_TWITTER" target="_blank" rel="noopener noreferrer">
+            <i className="fab fa-twitter icon"></i>
+          </a>
         </div>
       </nav>
     );

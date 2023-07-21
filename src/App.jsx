@@ -23,6 +23,7 @@ import NotFound from "components/NotFound";
 import DettagliPreassemblato from "components/DettagliPreassemblato";
 import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 import Assistenza from "components/Assistenza";
+import Contatti from "components/Contatti";
 
 class App extends Component {
   state = {
@@ -161,6 +162,7 @@ class App extends Component {
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/info" element={<Info />} />
+                <Route path="/contatti" element={<Contatti />} />
                 <Route path="/lavora" element={<Lavora />} />
                 <Route path="/assistenza" element={<Assistenza />} />
                 <Route path="/fondatori" element={<Fondatori />} />

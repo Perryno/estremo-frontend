@@ -36,7 +36,7 @@ const Footer = () => {
             Via Geltrude Beolchi 31, 20012 Cuoggino MI
           </a>
         </div>
-        <div className="text-start cp">&copy; 2023 EstremoSRL. Tutti i diritti riservati.</div>
+        <div className="text-start text-white cp">&copy; 2023 EstremoSRL. Tutti i diritti riservati.</div>
       </div>
     </footer>
   );
