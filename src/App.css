@@ -664,6 +664,19 @@
     display: none;
   }
 }
+/*----------------------Assistenza-------------------------*/
+.form-control {
+  border: none;
+  outline: none;
+  transition: border-color 0.2s ease-in-out;
+  padding-block: 7px;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: #ffffff;
+}
+
 .assistenzaContainer {
   width: 50%;
 }
@@ -682,16 +695,4 @@
   padding-block: 8px;
   font-weight: 500;
   font-size: 1.3rem;
-}
-
-.form-control {
-  border: none;
-  outline: none;
-  transition: border-color 0.2s ease-in-out;
-  padding-block: 7px;
-}
-
-.form-control:focus {
-  outline: none;
-  border-color: #ffffff;
 }
