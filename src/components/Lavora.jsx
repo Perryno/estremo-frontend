@@ -17,12 +17,12 @@ const Lavora = () => {
         </p>
 
         <p>I requisiti per il ruolo includono:</p>
-        <ul>
-          <li>Esperienza nel settore degli sport estremi o affinità con l'ambiente</li>
-          <li>Capacità di lavorare in team e comunicare in modo efficace</li>
-          <li>Orientamento al risultato e attitudine proattiva</li>
-          <li>Flessibilità e adattabilità ai cambiamenti</li>
-          <li>Motivazione a imparare e crescere professionalmente</li>
+        <ul className="list-unstyled">
+          <li>- Esperienza nel settore informatico</li>
+          <li>- Capacità di lavorare in team e comunicare in modo efficace</li>
+          <li>- Orientamento al risultato e attitudine proattiva</li>
+          <li>- Flessibilità e adattabilità ai cambiamenti</li>
+          <li>- Motivazione a imparare e crescere professionalmente</li>
         </ul>
 
         <p>
@@ -34,11 +34,14 @@ const Lavora = () => {
         <p>Unisciti a noi per un'esperienza estrema e stimolante!</p>
 
         <p>Contattaci:</p>
-        <ul>
+        <ul className="list-unstyled">
           <li>
-            Email: <a href="mailto:info@estremo.com">info@estremo.com</a>
+            Email:{" "}
+            <a className="text-decoration-none text-white" href="mailto:info@estremo.com">
+              info@estremo.com
+            </a>
           </li>
-          <li>Telefono: +1234567890</li>
+          <li>Telefono: +39 1234567890</li>
         </ul>
       </div>
     </div>

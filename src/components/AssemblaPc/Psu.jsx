@@ -38,7 +38,7 @@ class Psu extends Component {
     const { psus, selectedPsu } = this.state;
 
     // Ordina gli elementi in base al prezzo
-    const sortedPsus = psus.sort((a, b) => a.wattaggio - b.wattaggio);
+    const sortedPsus = psus.sort((a, b) => a.prezzo - b.prezzo);
 
     return (
       <div>
@@ -67,13 +67,16 @@ class Psu extends Component {
             ))}
           </div>
         </div>
-        {selectedPsu && (
-          <div className="avantiDiv">
+        <div className="frecceDiv">
+          <Link className="freccia-sinistra freccia" to="/ssd">
+            INDIETRO
+          </Link>
+          {selectedPsu && (
             <Link className="freccia" to="/pccase">
               AVANTI
             </Link>
-          </div>
-        )}
+          )}
+        </div>
       </div>
     );
   }

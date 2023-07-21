@@ -63,14 +63,16 @@ class Motherboard extends Component {
             ))}
           </div>
         </div>
-        {selectedMotherboard && (
-          <div className="avantiDiv">
-            {" "}
+        <div className="frecceDiv">
+          <Link className="freccia-sinistra freccia" to="/cpu">
+            INDIETRO
+          </Link>
+          {selectedMotherboard && (
             <Link className="freccia" to="/ram">
               AVANTI
             </Link>
-          </div>
-        )}
+          )}
+        </div>
       </div>
     );
   }

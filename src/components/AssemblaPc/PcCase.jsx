@@ -55,13 +55,16 @@ class PcCase extends Component {
             ))}
           </div>
         </div>
-        {selectedPcCase && (
-          <div className="avantiDiv">
+        <div className="frecceDiv">
+          <Link className="freccia-sinistra freccia" to="/psu">
+            INDIETRO
+          </Link>
+          {selectedPcCase && (
             <Link className="freccia" to="/summary">
               AVANTI
             </Link>
-          </div>
-        )}
+          )}
+        </div>
       </div>
     );
   }

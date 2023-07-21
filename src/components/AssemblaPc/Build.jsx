@@ -42,14 +42,17 @@ class Build extends Component {
             </div>
           </button>
         </div>
-        {selectedBrand && (
-          <div className="avantiDiv">
-            {" "}
+
+        <div className="frecceDiv">
+          <Link className="freccia-sinistra freccia" to="/">
+            INDIETRO
+          </Link>
+          {selectedBrand && (
             <Link className="freccia" to="/cpu">
               AVANTI
             </Link>
-          </div>
-        )}
+          )}
+        </div>
       </div>
     );
   }

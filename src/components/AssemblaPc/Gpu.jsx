@@ -56,13 +56,16 @@ class Gpu extends Component {
             ))}
           </div>
         </div>
-        {selectedGpu && (
-          <div className="avantiDiv">
+        <div className="frecceDiv">
+          <Link className="freccia-sinistra freccia" to="/dissipatore">
+            INDIETRO
+          </Link>
+          {selectedGpu && (
             <Link className="freccia" to="/ssd">
               AVANTI
             </Link>
-          </div>
-        )}
+          )}
+        </div>
       </div>
     );
   }

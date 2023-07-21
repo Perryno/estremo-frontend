@@ -63,14 +63,16 @@ class Cpu extends Component {
             ))}
           </div>
         </div>
-        {selectedProcessor && (
-          <div className="avantiDiv">
-            {" "}
+        <div className="frecceDiv">
+          <Link className="freccia-sinistra freccia" to="/build">
+            INDIETRO
+          </Link>
+          {selectedProcessor && (
             <Link className="freccia" to="/motherboard">
               AVANTI
             </Link>
-          </div>
-        )}
+          )}
+        </div>
       </div>
     );
   }

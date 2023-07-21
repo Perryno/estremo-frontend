@@ -26,7 +26,7 @@ const Footer = () => {
           Assistenza
         </Link>
         <Link className="col-sm-4 col-md-4 col-lg-2 footerItem" to="contatti">
-          FAQ
+          404
         </Link>
       </div>
       <div>

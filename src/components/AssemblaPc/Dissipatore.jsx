@@ -55,13 +55,16 @@ class Dissipatore extends Component {
             ))}
           </div>
         </div>
-        {selectedDissipatore && (
-          <div className="avantiDiv">
+        <div className="frecceDiv">
+          <Link className="freccia-sinistra freccia" to="/ram">
+            INDIETRO
+          </Link>
+          {selectedDissipatore && (
             <Link className="freccia" to="/gpu">
               AVANTI
             </Link>
-          </div>
-        )}
+          )}
+        </div>
       </div>
     );
   }

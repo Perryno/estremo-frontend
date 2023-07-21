@@ -67,13 +67,16 @@ class Ssd extends Component {
             ))}
           </div>
         </div>
-        {selectedSsd && (
-          <div className="avantiDiv">
+        <div className="frecceDiv">
+          <Link className="freccia-sinistra freccia" to="/gpu">
+            INDIETRO
+          </Link>
+          {selectedSsd && (
             <Link className="freccia" to="/psu">
               AVANTI
             </Link>
-          </div>
-        )}
+          )}
+        </div>
       </div>
     );
   }

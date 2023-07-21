@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { PayPalButtons, PayPalScriptProvider, usePayPalScriptReducer } from "@paypal/react-paypal-js";
+import intel from "assets/intel logo.png";
+import nvidia from "assets/nvidia logo.png";
+import amd from "assets/ryzenPiuGrande.png";
 
 const DettagliPreassemblato = () => {
   const [preassemblato, setPreassemblato] = useState(null);
@@ -49,7 +52,7 @@ const DettagliPreassemblato = () => {
         disabled={false}
         forceReRender={[amount, currency, style]}
         fundingSource={undefined}
-        onError={handlePaypalError} // Gestione dell'errore
+        onError={handlePaypalError} // Gestione dell'erroree
         createOrder={(data, actions) => {
           return actions.order
             .create({
@@ -72,16 +75,27 @@ const DettagliPreassemblato = () => {
       />
     );
   };
+  const cpuImage = preassemblato.cpu.startsWith("R") ? "amd-background" : "intel-background";
+  const cpuLogo = preassemblato.cpu.startsWith("R") ? amd : intel;
 
   return (
     <div>
-      <h3>{preassemblato.nome}</h3>
-      <p>Prezzo: {preassemblato.prezzo}</p>
-      <p>CPU: {preassemblato.cpu}</p>
-      <p>GPU: {preassemblato.gpu}</p>
-      <p>SSD: {preassemblato.ssd}</p>
-      <p>Punteggio: {preassemblato.punteggio}</p>
-      <p>prezzo: {preassemblato.prezzo}</p>
+      <div className=" dettagliPreassemblato">
+        <img src={cpuLogo} alt="cpu" />
+        <div className={`preassemblatoContainer ${cpuImage}`}>
+          <h3>{preassemblato.nome}</h3>
+          <div className="boxin">
+            <p>CPU: {preassemblato.cpu}</p>
+          </div>
+
+          <p>GPU: {preassemblato.gpu}</p>
+          <p>SSD: {preassemblato.ssd}</p>
+
+          <p>prezzo: {preassemblato.prezzo}&euro;</p>
+        </div>
+        <img src={nvidia} alt="nvidia" />
+      </div>
+
       <div>
         <PayPalScriptProvider
           options={{ clientId: "AXai-geAXdhjBK_8IAGGDUwOr5s8cE2gphvhwXiGssWIBqKmsgq0fSmhgyDMarkiNbb3_cbvewyoUFrM" }}

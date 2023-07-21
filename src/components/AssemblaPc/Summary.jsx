@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { PayPalButtons, PayPalScriptProvider, usePayPalScriptReducer } from "@paypal/react-paypal-js";
+
+import { PayPalButtons, usePayPalScriptReducer } from "@paypal/react-paypal-js";
 import Valorant from "../../assets/valorant.png";
 import Warzone from "../../assets/warzone.jpg";
 import Cyberpunk from "../../assets/cyberpunk img.jpg";
 import Fortnite from "../../assets/fotnite.png";
 import GodOfWar from "../../assets/god of war.jpg";
 import TheLastOfUs from "../../assets/thelastofus.webp";
+import ForzaHorizon from "../../assets/forza-horizon-5-button-fin-1629830068379.jpg";
 
 const Summary = ({
   selectedProcessor,
@@ -18,8 +20,17 @@ const Summary = ({
   selectedPcCase,
   totalPrice
 }) => {
-  const punteggioTot =
-    (selectedProcessor?.punteggio || 0) + (selectedGpu?.punteggio || 0) + (selectedRam?.punteggio || 0) + 100;
+  const [selectedResolution, setSelectedResolution] = useState("1080p");
+
+  const calculateFPS = (resolution) => {
+    const punteggioTot =
+      (selectedProcessor?.punteggio || 0) + (selectedGpu?.punteggio || 0) + (selectedRam?.punteggio || 0);
+    if (resolution === "1080p") return Math.round(punteggioTot);
+    if (resolution === "2K") return Math.round(punteggioTot / 1.2);
+    if (resolution === "4K") return Math.round(punteggioTot / 2.4);
+
+    return 0;
+  };
 
   const amount = totalPrice;
   const currency = "EUR";
@@ -95,48 +106,78 @@ const Summary = ({
           </div>
         </div>
         <div className="fps info">
-          <h3 className="mb-3">FPS medi in 1080p:</h3>
+          <div className="buttonContainer">
+            <h3 className="mb-4">FPS medi in:</h3>
+            {/* Aggiungiamo i bottoni per la selezione della risoluzione */}
+            <div className="resolution-buttons">
+              <button
+                className={`resolution-button ${selectedResolution === "1080p" && "selected"}`}
+                onClick={() => setSelectedResolution("1080p")}
+              >
+                1080p
+              </button>
+              <button
+                className={`resolution-button ${selectedResolution === "2K" && "selected"}`}
+                onClick={() => setSelectedResolution("2K")}
+              >
+                2K
+              </button>
+              <button
+                className={`resolution-button ${selectedResolution === "4K" && "selected"}`}
+                onClick={() => setSelectedResolution("4K")}
+              >
+                4K
+              </button>
+            </div>
+          </div>
           <div className="gioco mb-3">
             <div className="giocoM">
               <img src={Valorant} alt="valorant" />
               <div>Valorant :</div>
             </div>
-            <div>FPS medi {Math.round(punteggioTot)}</div>
+            <div>FPS medi {Math.round(calculateFPS(selectedResolution))}</div>
           </div>
           <div className="gioco mb-3">
             <div className="giocoM">
               <img src={Warzone} alt="warzone" />
               <div>Warzone :</div>
             </div>
-            <div>FPS medi {Math.round(punteggioTot / 3)}</div>
+            <div>FPS medi {Math.round(calculateFPS(selectedResolution) / 3)}</div>
           </div>
           <div className="gioco mb-3">
             <div className="giocoM">
               <img src={Cyberpunk} alt="cyberpunk" />
               <div>Cyberpunk (RTX on) :</div>
             </div>
-            <div>FPS medi {Math.round(punteggioTot / 5)}</div>
+            <div>FPS medi {Math.round(calculateFPS(selectedResolution) / 5)}</div>
           </div>
           <div className="gioco mb-3">
             <div className="giocoM">
               <img src={Fortnite} alt="fornite" />
               <div>Fortnite :</div>
             </div>
-            <div>FPS medi {Math.round(punteggioTot / 1.3)}</div>
+            <div>FPS medi {Math.round(calculateFPS(selectedResolution) / 1.3)}</div>
           </div>
           <div className="gioco mb-3">
             <div className="giocoM">
               <img src={GodOfWar} alt="God of war" />
               <div>God of war :</div>
             </div>
-            <div>FPS medi {Math.round(punteggioTot / 4)}</div>
+            <div>FPS medi {Math.round(calculateFPS(selectedResolution) / 4)}</div>
           </div>
           <div className="gioco mb-3">
             <div className="giocoM">
               <img src={TheLastOfUs} alt="The last of us" />
               <div>The last of us :</div>
             </div>
-            <div>FPS medi {Math.round(punteggioTot / 6.7)}</div>
+            <div>FPS medi {Math.round(calculateFPS(selectedResolution) / 6.7)}</div>
+          </div>
+          <div className="gioco mb-3">
+            <div className="giocoM">
+              <img src={ForzaHorizon} alt="ForzaHorizon" />
+              <div>Forza Horizon 5 :</div>
+            </div>
+            <div>FPS medi {Math.round(calculateFPS(selectedResolution) / 3.4)}</div>
           </div>
         </div>
       </div>

@@ -58,13 +58,16 @@ class Ram extends Component {
             ))}
           </div>
         </div>
-        {selectedRam && (
-          <div className="avantiDiv">
+        <div className="frecceDiv">
+          <Link className="freccia-sinistra freccia" to="/motherboard">
+            INDIETRO
+          </Link>
+          {selectedRam && (
             <Link className="freccia" to="/dissipatore">
               AVANTI
             </Link>
-          </div>
-        )}
+          )}
+        </div>
       </div>
     );
   }

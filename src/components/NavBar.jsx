@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import logo from "../assets/_d825c2ac-640e-4283-8f4e-d7fb167e7369 (1).png";
+import logo from "../assets/IMG_7137.PNG";
 import MyDropdown from "./MyDropdown";
 import { Component } from "react";
 

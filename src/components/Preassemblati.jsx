@@ -70,7 +70,11 @@ class Preassemblati extends Component {
                   SSD: {pc.ssd} <br />
                   Prezzo: {pc.prezzo}€ <br />
                 </p>
-                <Link to={`/preassemblati/${pc.id}`} className="btn btn-primary">
+                <Link
+                  to={`/preassemblati/${pc.id}`}
+                  className="btn btn-light
+      "
+                >
                   Acquista
                 </Link>
               </div>
